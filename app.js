@@ -95,11 +95,31 @@ const lodash = require("lodash")
 //     console.log("Finished writing to the file")
 // })
 
+// const readableStream = fs.createReadStream("example.txt")
+// const writableStream  = fs.createWriteStream("example-output.txt")
+
+// readableStream.pipe(writableStream)
+
+// writableStream.on("finish", () => {
+//     console.log("Finished copied successfully")
+// })
+
+
+const readline = require('readline')
+const { log } = require("console")
+
 const readableStream = fs.createReadStream("example.txt")
-const writableStream  = fs.createWriteStream("example-output.txt")
-
-readableStream.pipe(writableStream)
-
-writableStream.on("finish", () => {
-    console.log("Finished copied successfully")
+const rl = readline.createInterface({
+    input: readableStream,
 })
+
+rl.on("line", (line) => {
+    console.log("line: ", line)
+})
+
+rl.on("close", () => {
+    console.log("Finished processing the file")
+})
+
+
+
