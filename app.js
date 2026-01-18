@@ -141,8 +141,24 @@ const lodash = require("lodash")
 // })
 
 
-const files = fs.readdirSync('./')
-console.log("Directory content: ", files)
+// const files = fs.readdirSync('./')
+// console.log("Directory content: ", files)
+
+// const dirName = "new-Directory"
+
+// if (fs.existsSync(dirName)) {
+//     console.log("directory exists")
+// } else {
+//     console.log("Directory does not exist")
+// }
+
+fs.rmdir("new-directory", (err) => {
+    if(err){
+        return console.error("Error removing directory")
+    }else{
+        console.log("directory remove successfully")
+    }
+})
 
 
 
