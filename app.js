@@ -132,13 +132,17 @@ const lodash = require("lodash")
 // fs.mkdirSync("new-directory2")
 // console.log('direcotry created successfully')
 
-fs.readdir('./', (err, fiels) => {
-    if (err) {
-        return console.error("Error reading directory: ", err)
-    }
+// fs.readdir('./', (err, fiels) => {
+//     if (err) {
+//         return console.error("Error reading directory: ", err)
+//     }
 
-    console.log("Directory content: ", fiels)
-})
+//     console.log("Directory content: ", fiels)
+// })
+
+
+const files = fs.readdirSync('./')
+console.log("Directory content: ", files)
 
 
 
