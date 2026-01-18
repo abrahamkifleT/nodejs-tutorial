@@ -5,6 +5,7 @@ const os = require("os")
 const url = require("url")
 const crypto = require("crypto")
 const sayHello = require("./greetings")
+const math = require("./math")
 
 // fs.readFile("./example.txt", "utf-8", (err, data) => {
 //     if (err) {
@@ -59,4 +60,7 @@ const sayHello = require("./greetings")
 
 const message = sayHello("Developers")
 console.log(message)
+console.log(math.add(5, 3)) 
+console.log(math.subtract(5, 3))
+
 
