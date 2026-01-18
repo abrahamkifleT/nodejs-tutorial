@@ -70,16 +70,36 @@ const lodash = require("lodash")
 // console.log(reversed)
 
 
-const readableStream = fs.createReadStream("example.txt", "utf-8")
+// const readableStream = fs.createReadStream("example.txt", "utf-8")
 
-readableStream.on("data", (chunk) => {
-    console.log(chunk)
-})
+// readableStream.on("data", (chunk) => {
+//     console.log(chunk)
+// })
 
-readableStream.on("end", () => {
-    console.log("finished reading the file")
-})
+// readableStream.on("end", () => {
+//     console.log("finished reading the file")
+// })
 
-readableStream.on("error", (err) => {
-    console.log(err)
+// readableStream.on("error", (err) => {
+//     console.log(err)
+// })
+
+
+// const writableStream = fs.createWriteStream("output2.txt")
+
+// writableStream.write("Hello, ")
+// writableStream.write("World!")
+// writableStream.end()
+
+// writableStream.on("finish", () => {
+//     console.log("Finished writing to the file")
+// })
+
+const readableStream = fs.createReadStream("example.txt")
+const writableStream  = fs.createWriteStream("example-output.txt")
+
+readableStream.pipe(writableStream)
+
+writableStream.on("finish", () => {
+    console.log("Finished copied successfully")
 })
