@@ -4,6 +4,7 @@ const path = require("path")
 const os = require("os")
 const url = require("url")
 const crypto = require("crypto")
+const sayHello = require("./greetings")
 
 // fs.readFile("./example.txt", "utf-8", (err, data) => {
 //     if (err) {
@@ -51,7 +52,11 @@ const crypto = require("crypto")
 // console.log("Path",myUrl.pathname);
 // console.log("Search Params",myUrl.searchParams.get("query"));
 
-const hash = crypto.createHash("sha256")
-hash.update("Hello, NodeJs")
-console.log(hash.digest("hex"))
+// const hash = crypto.createHash("sha256")
+// hash.update("Hello, NodeJs")
+// console.log(hash.digest("hex"))
+
+
+const message = sayHello("Developers")
+console.log(message)
 
