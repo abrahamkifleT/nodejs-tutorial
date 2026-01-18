@@ -152,13 +152,30 @@ const lodash = require("lodash")
 //     console.log("Directory does not exist")
 // }
 
-fs.rmdir("new-directory", (err) => {
-    if(err){
-        return console.error("Error removing directory")
-    }else{
-        console.log("directory remove successfully")
+// fs.rmdir("new-directory2", (err) => {
+//     if (err) {
+//         return console.error("Error removing directory", err)
+//     } else {
+//         console.log("directory remove successfully")
+//     }
+// })
+
+// fs.rm("new-directory2", { recursive: true }, (err) => {
+//     if (err) {
+//         return console.error("Error removing directory", err)
+//     } else {
+//         console.log("directory remove successfully")
+//     }
+// })
+
+fs.rename("folder1", "folder2", (err)=> {
+    if(err) {
+        return console.error("Error renaming directory", err)
     }
+    console.log("directory renamed successfully")
 })
+
+
 
 
 
