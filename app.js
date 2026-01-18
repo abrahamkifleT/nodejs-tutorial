@@ -105,21 +105,30 @@ const lodash = require("lodash")
 // })
 
 
-const readline = require('readline')
-const { log } = require("console")
+// const readline = require('readline')
+// const { log } = require("console")
 
-const readableStream = fs.createReadStream("example.txt")
-const rl = readline.createInterface({
-    input: readableStream,
+// const readableStream = fs.createReadStream("example.txt")
+// const rl = readline.createInterface({
+//     input: readableStream,
+// })
+
+// rl.on("line", (line) => {
+//     console.log("line: ", line)
+// })
+
+// rl.on("close", () => {
+//     console.log("Finished processing the file")
+// })
+
+
+fs.mkdir("new-directory", (err)=> {
+    if(err) {
+       return console.error("Error creating directory: ", err)
+    }
+    console.log("Directory created successfully")
 })
 
-rl.on("line", (line) => {
-    console.log("line: ", line)
-})
-
-rl.on("close", () => {
-    console.log("Finished processing the file")
-})
 
 
 
