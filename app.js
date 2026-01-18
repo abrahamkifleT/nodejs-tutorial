@@ -3,6 +3,7 @@ const http = require("http")
 const path = require("path")
 const os = require("os")
 const url = require("url")
+const crypto = require("crypto")
 
 // fs.readFile("./example.txt", "utf-8", (err, data) => {
 //     if (err) {
@@ -45,9 +46,12 @@ const url = require("url")
 // console.log("Free Memory", os.freemem())
 
 
-const myUrl = new URL("https://example.com:8080/path/name?query=hello#hash")
-console.log("Host",myUrl.host);
-console.log("Path",myUrl.pathname);
-console.log("Search Params",myUrl.searchParams.get("query"));
+// const myUrl = new URL("https://example.com:8080/path/name?query=hello#hash")
+// console.log("Host",myUrl.host);
+// console.log("Path",myUrl.pathname);
+// console.log("Search Params",myUrl.searchParams.get("query"));
 
- 
+const hash = crypto.createHash("sha256")
+hash.update("Hello, NodeJs")
+console.log(hash.digest("hex"))
+
