@@ -122,12 +122,15 @@ const lodash = require("lodash")
 // })
 
 
-fs.mkdir("new-directory", (err)=> {
-    if(err) {
-       return console.error("Error creating directory: ", err)
-    }
-    console.log("Directory created successfully")
-})
+// fs.mkdir("new-directory", (err)=> {
+//     if(err) {
+//        return console.error("Error creating directory: ", err)
+//     }
+//     console.log("Directory created successfully")
+// })
+
+fs.mkdirSync("new-directory2")
+console.log('direcotry created successfully')
 
 
 
