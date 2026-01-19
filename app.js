@@ -175,12 +175,12 @@ const lodash = require("lodash")
 //     console.log("directory renamed successfully")
 // })
 
-fs.stat('./', (err, stats)=> {
+fs.stat('example.txt', (err, stats)=> {
    if(err){
     return console.error(err)
    }
-   console.log("Directory stats: ", stats);
-   
+   console.log("File stats: ", stats);
+   console.log("is directory: ", stats.isDirectory())
 })
 
 
