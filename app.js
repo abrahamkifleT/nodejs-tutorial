@@ -184,12 +184,14 @@ const lodash = require("lodash")
 // })
 
 
-fs.watch("./", (eventType, fileName)=>{
-console.log(`Event: ${eventType}`)
-if(fileName){
-    console.log(`File: ${fileName}`)
-}
-})
+// fs.watch("./", (eventType, fileName)=>{
+// console.log(`Event: ${eventType}`)
+// if(fileName){
+//     console.log(`File: ${fileName}`)
+// }
+// })
+
+
 
 
 
