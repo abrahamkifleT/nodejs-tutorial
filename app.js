@@ -168,11 +168,19 @@ const lodash = require("lodash")
 //     }
 // })
 
-fs.rename("folder1", "folder2", (err)=> {
-    if(err) {
-        return console.error("Error renaming directory", err)
-    }
-    console.log("directory renamed successfully")
+// fs.rename("folder1", "folder2", (err)=> {
+//     if(err) {
+//         return console.error("Error renaming directory", err)
+//     }
+//     console.log("directory renamed successfully")
+// })
+
+fs.stat('./', (err, stats)=> {
+   if(err){
+    return console.error(err)
+   }
+   console.log("Directory stats: ", stats);
+   
 })
 
 
