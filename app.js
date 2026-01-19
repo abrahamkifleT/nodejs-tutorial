@@ -175,14 +175,21 @@ const lodash = require("lodash")
 //     console.log("directory renamed successfully")
 // })
 
-fs.stat('example.txt', (err, stats)=> {
-   if(err){
-    return console.error(err)
-   }
-   console.log("File stats: ", stats);
-   console.log("is directory: ", stats.isDirectory())
-})
+// fs.stat('example.txt', (err, stats)=> {
+//    if(err){
+//     return console.error(err)
+//    }
+//    console.log("File stats: ", stats);
+//    console.log("is directory: ", stats.isDirectory())
+// })
 
+
+fs.watch("./", (eventType, fileName)=>{
+console.log(`Event: ${eventType}`)
+if(fileName){
+    console.log(`File: ${fileName}`)
+}
+})
 
 
 
