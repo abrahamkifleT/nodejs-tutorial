@@ -12,7 +12,4 @@ output.txt
 .DS_Store
 Thumbs.db
 
-# Tools
-nodemon.json
-
 
