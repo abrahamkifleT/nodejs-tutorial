@@ -1,8 +1,11 @@
 const http = require("http")
 const url = require("url")
 
-// Route handler
-
+// Middleware Function for logging requests
+function logRequest(req, res, next){
+ console.log(`${req.method} request made to ${req.url}`) 
+ next()
+}
 
 const server = http.createServer((req, res) => {
 const {pathname} = url.parse(req.url)
