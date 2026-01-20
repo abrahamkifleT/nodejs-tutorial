@@ -1,25 +1,22 @@
 const http = require("http")
 const url = require("url")
+const queryString = require("querystring")
 
-// Middleware Function for logging requests
-function logRequest(req, res, next) {
-    console.log(`${req.method} request made to ${req.url}`)
-    next()
-}
 
 const server = http.createServer((req, res) => {
-    logRequest(req, res, (req, res) => {
-        const { pathname } = url.parse(req.url)
+  if(req.method === "POST" && req.url === "/submit"){
+    let data = ""
 
-        if (pathname.startsWith("/user/")) {
-            const userId = pathname.split("/")[2]
-            res.writeHead(200, { "content-type": "text/plain" })
-            res.end(`User ID: ${userId}`)
-        } else {
-            res.writeHead(404, { "content-type": "text/plain" })
-            res.end("Route Not found")
-        }
+    req.on("data", (chunk) => {
+         data += chunk
     })
+
+    req.on('end', ()=> {
+    const parseData = queryString.parse(data)
+    res.writeHead(200, {"content-type": "application/json"})
+    res.end(JSON.stringify({message: "Form data received", parseData}))
+    })
+  }
 })
 
 const PORT = 3000
