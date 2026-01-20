@@ -3,30 +3,18 @@ const url = require("url")
 
 // Route handler
 
-const routes =  {
-    "/": (req, res) => {
-      res.writeHead(200, {"content-type": "text/plain"})
-      res.end("Welcome to HomePage")
-    },
-     "/about": (req, res) => {
-      res.writeHead(200, {"content-type": "text/plain"})
-      res.end("This is AboutPage")
-    },
-     "/notfound": (req, res) => {
-      res.writeHead(404, {"content-type": "text/plain"})
-      res.end("Page Not Found")
-    },
-}
 
 const server = http.createServer((req, res) => {
-    console.log(req.url)
-   const {pathname} = url.parse(req.url)
-   if(routes[pathname]){
-    routes[pathname](req, res)
-   }else {
-    routes["/notfound"](req, res)
-   }
+const {pathname} = url.parse(req.url)
 
+if(pathname.startsWith("/user/")){
+    const userId = pathname.split("/")[2]
+    res.writeHead(200, {"content-type": "text/plain"})
+    res.end(`User ID: ${userId}`)
+}else{
+    res.writeHead(404, {"content-type": "text/plain"})
+    res.end("Route Not found")
+}
 })
 
 const PORT = 3000
